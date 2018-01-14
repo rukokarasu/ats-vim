@@ -45,8 +45,10 @@ syn match   atsFloat display contained "\d\+e[-+]\=\d\+\>"
 syn match   atsOctalError display contained "0\o*[89]\d*"
 syn case match
 
-syn region  atsIncludes oneline start='#include' end='"' contains=atsStringDenot
-syn match   atsIdent "[A-Za-z_][0-9A-Za-z_\']*"
+syn region atsIncludes oneline start='#include' end='"' contains=atsStringDenot
+
+" highlight all identifiers
+" syn match   atsIdent "[A-Za-z_][0-9A-Za-z_\']*"
 
 " embedded C
 " %{^ %} %{ %} %{$ %} %{# %}
@@ -106,6 +108,8 @@ command! -nargs=+ AtsHiLink hi def link <args>
 
 " includes
 AtsHiLink atsIncludes Special
+AtsHiLink atsInclude Comment
+AtsHiLink atsIncluded Comment
 AtsHiLink atsSpecial Special
 
 " comments
